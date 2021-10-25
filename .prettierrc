@@ -1,0 +1,24 @@
+{
+  "useTabs": false,
+  "tabWidth": 4,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "semi": false,
+  "arrowParens": "avoid",
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "options": {
+        "parser": "typescript"
+      }
+    },
+    {
+      "files": ["*.json"],
+      "options": {
+        "parser": "json"
+      }
+    }
+  ]
+}
