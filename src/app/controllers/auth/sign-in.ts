@@ -15,7 +15,7 @@ export const signIn = async (req: Request, res: Response) => {
     if (!isValid) return res.status(401).json({ error: 'invalid username or password' })
 
     const access_token = jwt.sign({ username, sub: user.id }, getEnvVars('SECRET_TOKEN'), { expiresIn: '365 days' })
-    await createJWTToken(access_token)
+    await createJWTToken(access_token, user.id)
 
     DEBUG('jwtToken: %s', access_token)
 

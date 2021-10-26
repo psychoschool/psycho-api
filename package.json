@@ -9,7 +9,7 @@
         "start": "NODE_ENV=development run-p --print-label start:*",
         "build": "webpack --mode production",
         "prepare": "husky install",
-        "prettier": "prettier --write \"src/**/*.{ts}\"",
+        "prettier": "prettier --write --ext .ts ./",
         "lint": "eslint --fix --cache --quiet --ext .ts ./"
     },
     "lint-staged": {

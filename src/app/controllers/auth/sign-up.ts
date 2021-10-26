@@ -13,8 +13,8 @@ export const signUp = async (req: Request, res: Response) => {
     const user = await createUser({ username, phone, email, firstName, lastName, password: hashedPassword })
 
     const access_token = jwt.sign({ username, sub: user.id }, getEnvVars('SECRET_TOKEN'), { expiresIn: '365 days' })
-    await createJWTToken(access_token)
-
+    await createJWTToken(access_token, user.id)
+  
     DEBUG('user: %o', user)
     res.cookie('jwt', access_token, { httpOnly: true, maxAge: 3600 * 1000 * 24 * 365 })
     res.json({ id: user.id })
