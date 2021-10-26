@@ -1,7 +1,8 @@
 import { Router } from 'express'
-import { logout, signIn } from 'app/controllers'
+import { signUp, signIn, signOut } from 'app/controllers'
 
 export const authRoutes = (router: Router) => {
+    router.post('/signup', signUp)
     router.post('/login', signIn)
-    router.post('/logout', logout)
+    router.post('/logout', signOut)
 }

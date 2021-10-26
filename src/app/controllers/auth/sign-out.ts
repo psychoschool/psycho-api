@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { removeJWTToken } from 'app/resources/api'
 
-export const logout = async (req: Request, res: Response) => {
+export const signOut = async (req: Request, res: Response) => {
     const token = req.cookies.jwt
     await removeJWTToken(token)
 
