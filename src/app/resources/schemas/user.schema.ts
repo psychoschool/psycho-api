@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose'
-import type { User } from 'app/resources/types'
+import type { User, UserResponse } from 'app/resources/types'
 
 const UserSchema = new Schema<User>({
     firstName: String,
@@ -11,3 +11,12 @@ const UserSchema = new Schema<User>({
 })
 
 export const UserModel = model('users', UserSchema)
+
+export const normalizeUser = (user: User): UserResponse => ({
+    id: user.id,
+    phone: user.phone,
+    email: user.email,
+    username: user.username,
+    firstName: user.firstName,
+    lastName: user.lastName
+})

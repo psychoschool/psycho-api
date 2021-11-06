@@ -1,47 +1,16 @@
-import { UserModel } from 'app/resources/schemas'
-import type { User, UserRequest, UserResponse } from 'app/resources/types'
+import { normalizeUser, UserModel } from 'app/resources/schemas'
+import type { UserRequest } from 'app/resources/types'
 
 export const fetchUsers = () =>
     UserModel.find()
         .exec()
-        .then(
-            users =>
-                users.map(user => ({
-                    id: user.id,
-                    phone: user.phone,
-                    email: user.email,
-                    username: user.username,
-                    firstName: user.firstName,
-                    lastName: user.lastName
-                })) as Array<UserResponse>
-        )
+        .then(users => users.map(normalizeUser))
 
-export const fetchUserByUsername = (username: string) =>
-    UserModel.findOne({ username })
+export const fetchUserByUsername = (username: string) => UserModel.findOne({ username }).exec()
+
+export const fetchUserById = (id: string) =>
+    UserModel.findOne({ _id: id })
         .exec()
-        .then(
-            user =>
-                user &&
-                ({
-                    id: user.id,
-                    phone: user.phone,
-                    email: user.email,
-                    password: user.password,
-                    username: user.username,
-                    firstName: user.firstName,
-                    lastName: user.lastName
-                } as User)
-        )
+        .then(user => user && normalizeUser(user))
 
-export const createUser = async (user: UserRequest) =>
-    new UserModel(user).save().then(
-        user =>
-            ({
-                id: user.id,
-                phone: user.phone,
-                email: user.email,
-                username: user.username,
-                firstName: user.firstName,
-                lastName: user.lastName
-            } as UserResponse)
-    )
+export const createUser = async (user: UserRequest) => new UserModel(user).save().then(normalizeUser)
