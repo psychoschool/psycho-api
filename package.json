@@ -6,7 +6,8 @@
     "scripts": {
         "start:webpack": "webpack --mode development --watch",
         "start:app": "nodemon dist/js/app.js",
-        "start": "NODE_ENV=development run-p --print-label start:*",
+        "dev": "NODE_ENV=development run-p --print-label start:*",
+        "start": "node dist/js/app.js",
         "build": "webpack --mode production",
         "prepare": "husky install",
         "prettier": "prettier --write --ext .ts ./",
