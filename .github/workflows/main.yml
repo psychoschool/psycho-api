@@ -1,37 +1,12 @@
-name: CI/CD
+name: Deploy
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-    
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-
-    - name: Build
-      run: |
-        yarn install
-        yarn build
-
-    env:
-      NODE_ENV: production
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
 
     steps:
@@ -39,5 +14,6 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: "psycho--api"
+          heroku_app_name: "api-psychoschool"
           heroku_email: "ollylut@gmail.com"
+          usedocker: true

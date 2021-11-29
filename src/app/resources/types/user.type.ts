@@ -6,9 +6,7 @@ export type UserResponse = Omit<User, 'password'>
 export interface User extends Partial<Document> {
     id: string
     firstName: string
-    lastName: string
     email: string
     phone: number
     password: string
-    username: string
 }

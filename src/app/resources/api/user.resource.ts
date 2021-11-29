@@ -6,7 +6,7 @@ export const fetchUsers = () =>
         .exec()
         .then(users => users.map(normalizeUser))
 
-export const fetchUserByUsername = (username: string) => UserModel.findOne({ username }).exec()
+export const fetchUserByEmail = (email: string) => UserModel.findOne({ email }).exec()
 
 export const fetchUserById = (id: string) =>
     UserModel.findOne({ _id: id })
