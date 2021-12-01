@@ -1,5 +1,6 @@
 import express, { json } from 'express'
 import cookie from 'cookie-parser'
+import 'express-async-errors'
 
 import { queryParser, logger, error } from './middlewares'
 import { router } from './router'
