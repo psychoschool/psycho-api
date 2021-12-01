@@ -12,6 +12,15 @@ module.exports = {
         sourceType: 'module'
     },
     rules: {
-        quotes: ['warn', 'single']
+        quotes: ['warn', 'single'],
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': [
+            'warn',
+            {
+                argsIgnorePattern: '^_',
+                varsIgnorePattern: '^_',
+                caughtErrorsIgnorePattern: '^_'
+            }
+        ]
     }
 }
