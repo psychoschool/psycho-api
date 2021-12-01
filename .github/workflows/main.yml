@@ -8,20 +8,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
     - uses: actions/checkout@v2
+    - run: docker build -t denchiklut/psycho-api .
+    - run:  echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+      env:
+        DOCEKR_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    - run: docker push denchiklut/psycho-api
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
 
-    - name: Build
-      run: |
-        yarn install
-        yarn build
