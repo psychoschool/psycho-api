@@ -1,30 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-depl
+  name: psycho-api-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: psycho-api
   template:
-      metadata:
-        labels:
-          app: psycho-api
-      spec:
-          containers:
-            - name: psycho-api
-              image: denchiklut/psycho-api
+    metadata:
+      labels:
+        app: psycho-api
+    spec:
+      containers:
+        - name: psycho-api
+          image: denchiklut/psycho-api
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: psycho-api-srv
 spec:
+  type: ClusterIP
   selector:
     app: psycho-api
   ports:
-    - name: psycho-api
-      protocol: TCP
-      port: 8080
+    - port: 8080
       targetPort: 8080
