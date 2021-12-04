@@ -1,36 +1,36 @@
-#apiVersion: apps/v1
-#kind: Deployment
-#metadata:
-#  name: mongo-depl
-#spec:
-#  replicas: 1
-#  selector:
-#    matchLabels:
-#      app: mongo
-#  template:
-#    metadata:
-#      labels:
-#        app: mongo
-#    spec:
-#      containers:
-#        - name: mongo
-#          image: mongo
-#          resources:
-#            limits:
-#              cpu: '1'
-#              memory: '1Gi'
-#            requests:
-#              cpu: '500m'
-#              memory: '512Mi'
-#---
-#apiVersion: v1
-#kind: Service
-#metadata:
-#  name: mongo-srv
-#spec:
-#  type: ClusterIP
-#  selector:
-#    app: mongo
-#  ports:
-#    - port: 27017
-#      targetPort: 27017
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      volumes:
+        - name: mongo-storage
+          persistentVolumeClaim:
+            claimName: mongo-pvc
+      containers:
+        - name: mongo
+          image: mongo
+          volumeMounts:
+            - mountPath: /var/lib/mongo/db
+              name: mongo-storage
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: mongo
+  ports:
+    - port: 27017
+      targetPort: 27017

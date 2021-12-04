@@ -24,17 +24,14 @@ spec:
                   name: secret-token
                   key: SECRET_TOKEN
             - name: DB_HOST
-              valueFrom:
-                secretKeyRef:
-                  name: db-host
-                  key: DB_HOST
+              value: 'mongodb://mongo-srv:27017/psycho'
           resources:
             limits:
-              cpu: '200m'
-              memory: '256Mi'
+              cpu: 200m
+              memory: 256Mi
             requests:
-              cpu: '100m'
-              memory: '128Mi'
+              cpu: 100m
+              memory: 128Mi
 ---
 apiVersion: v1
 kind: Service
