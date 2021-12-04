@@ -7,6 +7,7 @@ import { router } from './router'
 
 export const app = express()
 
+app.set('trust proxy', true)
 app.use(json())
 app.use(cookie())
 app.set('query parser', queryParser)

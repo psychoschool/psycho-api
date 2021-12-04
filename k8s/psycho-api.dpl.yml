@@ -14,6 +14,20 @@ spec:
     spec:
       containers:
         - name: psycho-api
+          image: denchiklut/psycho-api
+          env:
+            - name: DEBUG
+              value: 'true'
+            - name: SECRET_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: secret-token
+                  key: SECRET_TOKEN
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: db-host
+                  key: DB_HOST
           resources:
             limits:
               cpu: '200m'
@@ -21,7 +35,6 @@ spec:
             requests:
               cpu: '100m'
               memory: '128Mi'
-          image: denchiklut/psycho-api
 ---
 apiVersion: v1
 kind: Service
