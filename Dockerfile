@@ -8,4 +8,4 @@ RUN yarn install
 COPY . .
 
 RUN yarn build
-CMD node dist/app.js
+CMD node dist/js/app.js
