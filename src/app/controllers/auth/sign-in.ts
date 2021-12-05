@@ -16,6 +16,6 @@ export const signIn = async (req: Request, res: Response) => {
     const access_token = jwt.sign({ email, sub: user.id }, getEnvVars('SECRET_TOKEN'), { expiresIn: '91 days' })
     await createJWTToken(access_token, user.id)
 
-    res.cookie('jwt', access_token, { httpOnly: true, maxAge: 3600 * 1000 * 24 * 91 })
+    res.cookie('jwt', access_token, { domain: '.psychoschool.ru', httpOnly: true, maxAge: 3600 * 1000 * 24 * 91 })
     res.json({ access_token })
 }
