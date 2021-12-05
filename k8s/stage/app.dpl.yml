@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: psycho-api-stage-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: psycho-api-stage
+  template:
+    metadata:
+      labels:
+        app: psycho-api-stage
+    spec:
+      containers:
+        - name: psycho-api-stage
+          image: denchiklut/psycho-api-stage
+          env:
+            - name: DEBUG
+              value: 'true'
+            - name: SECRET_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: secret-token
+                  key: SECRET_TOKEN
+            - name: DB_HOST
+              value: 'mongodb://mongo-srv:27017/psycho-stage'
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: psycho-api-stage-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: psycho-api-stage
+  ports:
+    - port: 8080
+      targetPort: 8080

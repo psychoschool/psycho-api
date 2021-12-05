@@ -14,5 +14,5 @@ jobs:
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save psychoschool
-      - run: kubectl apply -f k8s
+      - run: kubectl apply -f k8s/base -f k8s/prod
 
