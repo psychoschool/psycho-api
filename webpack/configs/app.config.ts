@@ -21,7 +21,7 @@ const config = {
         alias,
         extensions: ['*', '.json', '.ts']
     },
-    plugins: [plugins.definePlugin, plugins.esLintPlugin],
+    plugins: [plugins.definePlugin, plugins.environmentPlugin, plugins.esLintPlugin],
     externals: [nodeExternals()]
 }
 
