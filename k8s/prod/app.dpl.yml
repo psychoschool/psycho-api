@@ -24,7 +24,10 @@ spec:
                   name: secret-token
                   key: SECRET_TOKEN
             - name: DB_HOST
-              value: ''
+              valueFrom:
+                secretKeyRef:
+                  name: db-access
+                  key: DB_HOST
           resources:
             limits:
               cpu: 200m

@@ -22,9 +22,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: secret-token
-                  key: SECRET_TOKEN
+                  key: SECRET_TOKEN_STAGE
             - name: DB_HOST
-              value: ''
+              valueFrom:
+                secretKeyRef:
+                  name: db-access
+                  key: DB_HOST
           resources:
             limits:
               cpu: 200m
