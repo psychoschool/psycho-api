@@ -22,7 +22,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: secret-token
-                  key: SECRET_TOKEN
+                  key: SECRET_TOKEN_STAGE
             - name: DB_HOST
               value: 'mongodb://mongo-srv:27017/psycho-stage'
           resources:
