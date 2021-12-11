@@ -1,7 +1,7 @@
 {
     "name": "app",
     "version": "1.0.0",
-    "description": "simple express app",
+    "description": "Backend for psychoschool",
     "main": "src/index.ts",
     "scripts": {
         "start:webpack": "webpack --mode development --watch",
