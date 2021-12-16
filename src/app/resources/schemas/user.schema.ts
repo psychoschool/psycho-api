@@ -5,6 +5,7 @@ const UserSchema = new Schema<User>({
     firstName: String,
     email: String,
     password: String,
+    role: String,
     phone: Number
 })
 
@@ -14,5 +15,6 @@ export const normalizeUser = (user: User): UserResponse => ({
     id: user.id,
     phone: user.phone,
     email: user.email,
-    firstName: user.firstName
+    firstName: user.firstName,
+    role: user.role
 })

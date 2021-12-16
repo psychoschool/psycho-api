@@ -9,7 +9,9 @@ export const error = (error: Error, req: Request, res: Response, _: NextFunction
     }
 
     if (error instanceof AppError) {
-        return res.status(error.statusCode).send(error.serializeError())
+        return res.status(error.statusCode).json({
+            errors: error.serializeError()
+        })
     }
 
     res.status(400).send('Something broke!')
