@@ -1,11 +1,7 @@
+import { User } from 'app/resources/types'
+
 export type CourseResponse = Course
 export type CourseRequest = Course
-
-export interface Section {
-    id: string
-    title: string
-    lectures: Array<Lecture>
-}
 
 export interface Course {
     id: string
@@ -13,7 +9,12 @@ export interface Course {
     image: string
     isFree: boolean
     description: string
-    sections: Array<Section>
+    author: User
+    sections: Array<{
+        title: string
+        lectures: Array<Lecture>
+    }>
+    paidPlans: Array<{ name: string; price: number }>
 }
 
 export interface Lecture {
