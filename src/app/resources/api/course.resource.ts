@@ -1,6 +1,16 @@
+import { Types } from 'mongoose'
 import type { CourseRequest } from 'app/resources/types'
-import { normalizeCourse, CourseModel } from 'app/resources/schemas'
+import { CourseModel, normalizeCourse } from 'app/resources/schemas'
 
-export const fetchCourses = () => CourseModel.find().then(courses => courses.map(normalizeCourse))
+export const fetchCourses = () => {
+    return CourseModel.find()
+        .populate({ path: 'author', model: 'users' })
+        .then(courses => courses.map(normalizeCourse))
+}
 
-export const createCourse = (course: CourseRequest) => new CourseModel(course).save()
+export const createCourse = (courseParams: CourseRequest, authorId: string) => {
+    const course = new CourseModel(courseParams)
+    course.author = new Types.ObjectId(authorId)
+
+    return course.save()
+}

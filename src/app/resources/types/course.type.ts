@@ -1,7 +1,7 @@
-import { User } from 'app/resources/types'
+import type { Types } from 'mongoose'
 
 export type CourseResponse = Course
-export type CourseRequest = Course
+export type CourseRequest = Omit<Course, 'id' | 'author'>
 
 export interface Course {
     id: string
@@ -9,7 +9,7 @@ export interface Course {
     image: string
     isFree: boolean
     description: string
-    author: User
+    author: Types.ObjectId
     sections: Array<{
         title: string
         lectures: Array<Lecture>
@@ -24,12 +24,12 @@ export interface Lecture {
     title: string
 }
 
-interface Test {
-    type: 'test'
-    duration: number
-    questions: Array<{
-        name: string
-        type: 'single' | 'multi'
-        answers: Array<{ name: string }>
-    }>
-}
+// interface Test {
+//     type: 'test'
+//     duration: number
+//     questions: Array<{
+//         name: string
+//         type: 'single' | 'multi'
+//         answers: Array<{ name: string }>
+//     }>
+// }

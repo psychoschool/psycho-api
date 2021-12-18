@@ -1,9 +1,14 @@
 import { Course, User } from 'app/resources/types'
-export type LessonResponse = Lesson
+import { Types } from 'mongoose'
 
-export interface Lesson {
+export type LessonResponse = Lesson & {
     course: Course
     user: User
+}
+
+export interface Lesson {
+    course: Types.ObjectId
+    user: Types.ObjectId
     completedLectures: Array<string>
     paidPlan: string
 }
