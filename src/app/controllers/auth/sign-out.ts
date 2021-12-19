@@ -6,5 +6,5 @@ export const signOut = async (req: Request, res: Response) => {
     await removeJWTToken(token)
 
     res.cookie('jwt', '', { domain: '.psychoschool.ru', maxAge: 1 })
-    res.status(204).json({})
+    res.status(204).json({ status: 'OK' })
 }

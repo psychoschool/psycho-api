@@ -1,3 +1,4 @@
-export * from './user.schema'
-export * from './courses.schema'
-export * from './jwt.schema'
+export * from './user'
+export * from './course'
+export * from './lesson'
+export * from './jwt'

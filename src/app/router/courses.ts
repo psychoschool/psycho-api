@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { auth } from 'app/middlewares'
-import { getAllCourses, addCourse } from 'app/controllers/courses'
+import { getAllCourses, addCourse } from 'app/controllers'
 
 export const coursesRoutes = (router: Router) => {
     router.get('/api/v1/courses', getAllCourses)
