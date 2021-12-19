@@ -7,9 +7,15 @@ export const getUsers = (req: Request, res: Response) => {
     fetchUsers().then(users => res.json(users))
 }
 
-export const getUserById = async (req: Request, res: Response) => {
+export const getCurrentUser = async (req: Request, res: Response) => {
     const token = req.cookies.jwt as string
 
     const { sub } = await jwt.verify(token, getEnvVars('SECRET_TOKEN'))
     fetchUserById(sub as string).then(user => res.json(user))
+}
+
+export const getUserById = async (req: Request, res: Response) => {
+    const { id } = req.params
+
+    fetchUserById(id).then(user => res.json(user))
 }
