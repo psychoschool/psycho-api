@@ -14,7 +14,7 @@ export interface Course {
         title: string
         lectures: Array<Lecture>
     }>
-    paidPlans: Array<{ name: string; price: number }>
+    paidPlans: Array<{ id: string; name: string; price: number }>
 }
 
 export interface Lecture {

@@ -8,5 +8,9 @@ export const normalizeCourse = (course: Course): CourseResponse => ({
     description: course.description,
     author: course.author,
     sections: course.sections,
-    paidPlans: course.paidPlans
+    paidPlans: course.paidPlans.map(plan => ({
+        id: plan.id,
+        name: plan.name,
+        price: plan.price
+    }))
 })
