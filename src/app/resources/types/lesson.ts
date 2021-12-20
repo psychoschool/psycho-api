@@ -1,6 +1,6 @@
 import { CourseResponse, UserResponse } from 'app/resources/types'
 
-export type LessonResponse = Lesson & {
+export type LessonResponse = {
     id: string
     course: CourseResponse
     user: UserResponse

@@ -9,7 +9,7 @@ export interface Course {
     image: string
     isFree: boolean
     description: string
-    author: Types.ObjectId
+    author: any
     sections: Array<{
         id: string
         title: string

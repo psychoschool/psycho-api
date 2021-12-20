@@ -5,7 +5,14 @@ export const fetchAllLessonsByUserId = (userId: string) => {
     const user = new Types.ObjectId(userId)
     return LessonsModel.find({ user })
         .populate({ path: 'user', model: 'users' })
-        .populate({ path: 'course', model: 'courses' })
+        .populate({
+            path: 'course',
+            model: 'courses',
+            populate: {
+                path: 'author',
+                model: 'users'
+            }
+        })
         .then(res => res.map(normalizeLesson))
 }
 

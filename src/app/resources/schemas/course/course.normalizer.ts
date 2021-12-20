@@ -1,4 +1,5 @@
 import { Course, CourseResponse } from 'app/resources/types'
+import { normalizeUser } from 'app/resources/schemas'
 
 export const normalizeCourse = (course: Course): CourseResponse => ({
     id: course.id,
@@ -6,7 +7,7 @@ export const normalizeCourse = (course: Course): CourseResponse => ({
     image: course.image,
     isFree: course.isFree,
     description: course.description,
-    author: course.author,
+    author: normalizeUser(course.author),
     sections: course.sections.map(section => ({
         id: section.id,
         title: section.title,
