@@ -4,6 +4,6 @@ import { getUserLessonByCourseId, getUserLessons, addLessonToUser } from 'app/co
 
 export const lessonsRoutes = (router: Router) => {
     router.get('/api/v1/lessons/course/:courseId', [auth], getUserLessonByCourseId)
-    router.get('/api/v1/lessons/my/:userId', [auth], getUserLessons)
+    router.get('/api/v1/lessons/user/:userId', [auth], getUserLessons)
     router.post('/api/v1/lessons', [auth], addLessonToUser)
 }

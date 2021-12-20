@@ -11,6 +11,7 @@ export interface Course {
     description: string
     author: Types.ObjectId
     sections: Array<{
+        id: string
         title: string
         lectures: Array<Lecture>
     }>

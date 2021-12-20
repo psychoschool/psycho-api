@@ -3,7 +3,10 @@ import { LessonsModel, normalizeLesson } from 'app/resources/schemas'
 
 export const fetchAllLessonsByUserId = (userId: string) => {
     const user = new Types.ObjectId(userId)
-    return LessonsModel.find({ user }).then(res => res.map(normalizeLesson))
+    return LessonsModel.find({ user })
+        .populate({ path: 'user', model: 'users' })
+        .populate({ path: 'course', model: 'courses' })
+        .then(res => res.map(normalizeLesson))
 }
 
 export const fetchLessonByUserId = (userId: string, courseId: string) => {
