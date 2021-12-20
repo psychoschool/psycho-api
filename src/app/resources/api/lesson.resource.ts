@@ -24,3 +24,5 @@ export const addLesson = (course: string, user: string, paidPlan: string) => {
         paidPlan
     }).save()
 }
+
+export const removeLesson = (id: string) => LessonsModel.findByIdAndRemove(id)
