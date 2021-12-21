@@ -1,5 +1,3 @@
-import type { Types } from 'mongoose'
-
 export type CourseResponse = Course
 export type CourseRequest = Omit<Course, 'id' | 'author'>
 
@@ -7,6 +5,7 @@ export interface Course {
     id: string
     title: string
     image: string
+    url: string
     isFree: boolean
     description: string
     author: any
@@ -24,13 +23,3 @@ export interface Lecture {
     url: string
     title: string
 }
-
-// interface Test {
-//     type: 'test'
-//     duration: number
-//     questions: Array<{
-//         name: string
-//         type: 'single' | 'multi'
-//         answers: Array<{ name: string }>
-//     }>
-// }

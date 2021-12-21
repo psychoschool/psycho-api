@@ -8,6 +8,7 @@ export const normalizeCourse = (course: Course): CourseResponse => ({
     isFree: course.isFree,
     description: course.description,
     author: normalizeUser(course.author),
+    url: course.url,
     sections: course.sections.map(section => ({
         id: section.id,
         title: section.title,

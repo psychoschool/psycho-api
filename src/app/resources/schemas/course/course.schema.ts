@@ -10,6 +10,7 @@ const LectureSchema = new Schema<Lecture>({
 const CourseSchema = new Schema<Course>({
     title: String,
     description: String,
+    url: String,
     image: String,
     author: { type: Schema.Types.ObjectId, ref: 'users' },
     sections: [{ title: String, lectures: [LectureSchema] }],
