@@ -18,6 +18,15 @@ export const fetchCourseById = (id: string) => {
         })
 }
 
+export const fetchCourseByUrl = (url: string) => {
+    return CourseModel.findOne({ url })
+        .populate({ path: 'author', model: 'users' })
+        .then(course => course && normalizeCourse(course))
+        .catch(error => {
+            throw new RequestError(error.message)
+        })
+}
+
 export const createCourse = (courseParams: CourseRequest, authorId: string) => {
     const course = new CourseModel(courseParams)
     course.author = new Types.ObjectId(authorId)
