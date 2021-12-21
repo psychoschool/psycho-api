@@ -10,6 +10,7 @@ const LessonSchema = new Schema<Lesson>({
         type: Schema.Types.ObjectId,
         ref: 'users'
     },
+    url: String,
     completedLectures: [String],
     paidPlan: String
 })

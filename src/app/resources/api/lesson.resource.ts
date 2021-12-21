@@ -20,11 +20,30 @@ export const fetchUserLessons = (userId: string) => {
         })
 }
 
-export const addLesson = (course: string, user: string, paidPlan: string) => {
+export const fetchUserLessonsByUrl = (userId: string, url: string) => {
+    const user = new Types.ObjectId(userId)
+    return LessonsModel.findOne({ user, url })
+        .populate({ path: 'user', model: 'users' })
+        .populate({
+            path: 'course',
+            model: 'courses',
+            populate: {
+                path: 'author',
+                model: 'users'
+            }
+        })
+        .then(lesson => lesson && normalizeLesson(lesson))
+        .catch(error => {
+            throw new RequestError(error.message)
+        })
+}
+
+export const addLesson = (course: string, user: string, url: string, paidPlan: string) => {
     return new LessonsModel({
         course: course,
         user: user,
         completedLectures: [],
+        url,
         paidPlan
     })
         .save()

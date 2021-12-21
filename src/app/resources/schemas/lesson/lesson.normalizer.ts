@@ -6,5 +6,6 @@ export const normalizeLesson = (lesson: Lesson): LessonResponse => ({
     user: normalizeUser(lesson.user),
     course: normalizeCourse(lesson.course),
     completedLectures: lesson.completedLectures,
-    paidPlan: lesson.paidPlan
+    paidPlan: lesson.paidPlan,
+    url: lesson.url
 })
