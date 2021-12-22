@@ -1,6 +1,6 @@
 import { Types } from 'mongoose'
 import { LessonsModel, normalizeLesson } from 'app/resources/schemas'
-import { LessonResponse } from 'app/resources/types'
+import { Lesson, LessonResponse } from 'app/resources/types'
 import { RequestError } from 'app/errors'
 
 export const fetchUserLessons = (userId: string): Promise<Array<LessonResponse>> => {
@@ -15,6 +15,7 @@ export const fetchUserLessons = (userId: string): Promise<Array<LessonResponse>>
                 model: 'users'
             }
         })
+        .exec()
         .then(res => res.map(normalizeLesson))
         .catch(error => {
             throw new RequestError(error.message)
@@ -33,6 +34,28 @@ export const fetchUserLessonByUrl = (userId: string, url: string): Promise<Lesso
                 model: 'users'
             }
         })
+        .exec()
+        .then(lesson => {
+            if (lesson) return normalizeLesson(lesson)
+            return null
+        })
+        .catch(error => {
+            throw new RequestError(error.message)
+        })
+}
+
+export const fetchUserLessonById = (id: string): Promise<LessonResponse | null> => {
+    return LessonsModel.findById(id)
+        .populate({ path: 'user', model: 'users' })
+        .populate({
+            path: 'course',
+            model: 'courses',
+            populate: {
+                path: 'author',
+                model: 'users'
+            }
+        })
+        .exec()
         .then(lesson => {
             if (lesson) return normalizeLesson(lesson)
             return null
@@ -51,6 +74,15 @@ export const addLesson = (
     return new LessonsModel({ course, user, completedLectures: [], url, paidPlan })
         .save()
         .then(() => fetchUserLessonByUrl(user, url))
+        .catch(error => {
+            throw new RequestError(error.message)
+        })
+}
+
+export const updateLesson = (id: string, payload: Partial<Lesson>): Promise<LessonResponse | null> => {
+    return LessonsModel.findByIdAndUpdate(id, payload)
+        .exec()
+        .then(() => fetchUserLessonById(id))
         .catch(error => {
             throw new RequestError(error.message)
         })
