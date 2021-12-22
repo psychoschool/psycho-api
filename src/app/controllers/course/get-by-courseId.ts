@@ -3,7 +3,8 @@ import { fetchCourseById } from 'app/resources/api'
 
 export const getByCourseId = (req: Request, res: Response, next: NextFunction) => {
     const { id } = req.params
+    // todo: add validation
     fetchCourseById(id as string)
-        .then(courses => res.send(courses))
+        .then(course => res.send({ data: course }))
         .catch(next)
 }

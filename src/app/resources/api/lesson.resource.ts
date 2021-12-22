@@ -1,8 +1,9 @@
 import { Types } from 'mongoose'
 import { LessonsModel, normalizeLesson } from 'app/resources/schemas'
+import { LessonResponse } from 'app/resources/types'
 import { RequestError } from 'app/errors'
 
-export const fetchUserLessons = (userId: string) => {
+export const fetchUserLessons = (userId: string): Promise<Array<LessonResponse>> => {
     const user = new Types.ObjectId(userId)
     return LessonsModel.find({ user })
         .populate({ path: 'user', model: 'users' })
@@ -20,7 +21,7 @@ export const fetchUserLessons = (userId: string) => {
         })
 }
 
-export const fetchUserLessonsByUrl = (userId: string, url: string) => {
+export const fetchUserLessonByUrl = (userId: string, url: string): Promise<LessonResponse | null> => {
     const user = new Types.ObjectId(userId)
     return LessonsModel.findOne({ user, url })
         .populate({ path: 'user', model: 'users' })
@@ -32,24 +33,27 @@ export const fetchUserLessonsByUrl = (userId: string, url: string) => {
                 model: 'users'
             }
         })
-        .then(lesson => lesson && normalizeLesson(lesson))
+        .then(lesson => {
+            if (lesson) return normalizeLesson(lesson)
+            return null
+        })
         .catch(error => {
             throw new RequestError(error.message)
         })
 }
 
-export const addLesson = (course: string, user: string, url: string, paidPlan: string) => {
-    return new LessonsModel({
-        course: course,
-        user: user,
-        completedLectures: [],
-        url,
-        paidPlan
-    })
+export const addLesson = (
+    course: string,
+    user: string,
+    url: string,
+    paidPlan: string
+): Promise<LessonResponse | null> => {
+    return new LessonsModel({ course, user, completedLectures: [], url, paidPlan })
         .save()
+        .then(() => fetchUserLessonByUrl(user, url))
         .catch(error => {
             throw new RequestError(error.message)
         })
 }
 
-export const removeLesson = (id: string) => LessonsModel.findByIdAndRemove(id)
+export const removeLesson = (id: string) => LessonsModel.findByIdAndRemove(id).exec()
