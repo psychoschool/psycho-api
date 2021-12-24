@@ -7,11 +7,11 @@ export const getCourses = (req: Request, res: Response, next: NextFunction) => {
 
     if (url) {
         fetchCourseByUrl(url as string)
-            .then(course => res.send({ data: course }))
+            .then(course => res.send({ result: course }))
             .catch(next)
     } else {
         fetchCourses()
-            .then(courses => res.send({ data: courses }))
+            .then(courses => res.send({ result: courses }))
             .catch(next)
     }
 }

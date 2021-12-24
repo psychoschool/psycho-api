@@ -5,7 +5,8 @@ export type LessonResponse = {
     course: CourseResponse
     user: UserResponse
     completedLectures: Array<string>
-    paidPlan: string
+    purchasedPrice?: number
+    isFree: boolean
     url: string
 }
 
@@ -15,5 +16,5 @@ export interface Lesson {
     user: any
     url: string
     completedLectures: Array<string>
-    paidPlan: string
+    purchasedPrice?: number
 }

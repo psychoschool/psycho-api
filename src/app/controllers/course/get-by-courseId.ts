@@ -5,6 +5,6 @@ export const getByCourseId = (req: Request, res: Response, next: NextFunction) =
     const { id } = req.params
     // todo: add validation
     fetchCourseById(id as string)
-        .then(course => res.send({ data: course }))
+        .then(course => res.send({ result: course }))
         .catch(next)
 }

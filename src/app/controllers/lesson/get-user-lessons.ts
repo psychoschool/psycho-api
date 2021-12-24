@@ -9,12 +9,12 @@ export const getUserLessons = (req: Request, res: Response, next: NextFunction) 
     if (url) {
         lessonResource
             .fetchUserLessonByUrl(userId, url as string)
-            .then(course => res.send({ data: course }))
+            .then(course => res.send({ result: course }))
             .catch(next)
     } else {
         lessonResource
             .fetchUserLessons(userId)
-            .then(courses => res.send({ data: courses }))
+            .then(courses => res.send({ result: courses }))
             .catch(next)
     }
 }

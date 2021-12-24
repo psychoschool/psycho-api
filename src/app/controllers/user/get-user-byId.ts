@@ -6,6 +6,6 @@ export const getUserById = async (req: Request, res: Response, next: NextFunctio
 
     userResource
         .fetchUserById(id)
-        .then(user => res.json({ data: user }))
+        .then(user => res.json({ result: user }))
         .catch(next)
 }

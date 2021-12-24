@@ -5,7 +5,6 @@ export const normalizeCourse = (course: Course): CourseResponse => ({
     id: course.id,
     title: course.title,
     image: course.image,
-    isFree: course.isFree,
     description: course.description,
     author: normalizeUser(course.author),
     url: course.url,
@@ -19,9 +18,10 @@ export const normalizeCourse = (course: Course): CourseResponse => ({
             url: lecture.url
         }))
     })),
-    paidPlans: course.paidPlans.map(plan => ({
-        id: plan.id,
-        name: plan.name,
-        price: plan.price
-    }))
+    skills: course.skills,
+    isFree: course.isFree,
+    price: {
+        cost: course.price.cost,
+        promoCost: course.price.promoCost
+    }
 })

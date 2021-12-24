@@ -5,6 +5,6 @@ export const removeLesson = (req: Request, res: Response, next: NextFunction) =>
     const { id } = req.params
     lessonResource
         .removeLesson(id)
-        .then(() => res.json({ data: id }))
+        .then(() => res.json({ result: { id } }))
         .catch(next)
 }

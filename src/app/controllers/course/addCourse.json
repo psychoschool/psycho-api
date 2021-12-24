@@ -1,9 +1,8 @@
 {
     "title": "Депрессия ",
-    "description": "Прорабатываем депресивное растройство",
+    "description": "Индивидуальная программа формирования свободной личности. Курс направлен на внутреннюю работу с установками, зависимостями, которые мешают быть счастливым и получать удовольствие от жизни.",
     "image": "https://cdn.lifehacker.ru/wp-content/uploads/2018/02/Depra_1518533823-1280x640.jpg",
     "url": "depression",
-    "isFree": true,
     "sections": [
         {
             "title": "Базовый курс",
@@ -11,46 +10,56 @@
                 {
                     "type": "video",
                     "title": "Теория депресси. Симптомы и лечение",
-                    "url": "https://www.youtube.com/watch?v=Plaq3HOl7uU"
+                    "url": "Plaq3HOl7uU"
                 },
-                { "type": "video", "title": "Причины", "url": "https://www.youtube.com/watch?v=9EsyhT4Ljxw" },
+                {
+                    "type": "video",
+                    "title": "Причины",
+                    "url": "9EsyhT4Ljxw"
+                },
                 {
                     "type": "video",
                     "title": "Симптомы и лечение. ч.1",
-                    "url": " https://www.youtube.com/watch?v=9RrOC9F9Tc0"
+                    "url": " 9RrOC9F9Tc0"
                 },
                 {
                     "type": "video",
                     "title": "Что она делает? Инструкция самопомощи",
-                    "url": "https://www.youtube.com/watch?v=tSqilg_NTXU"
+                    "url": "tSqilg_NTXU"
                 },
                 {
                     "type": "video",
                     "title": "Как я заработал себе на депрессию",
-                    "url": "https://www.youtube.com/watch?v=DOfB12h_9yE"
+                    "url": "DOfB12h_9yE"
                 },
                 {
                     "type": "video",
                     "title": "Антидепрессанты, возвращение к наркотикам.",
-                    "url": "https://www.youtube.com/watch?v=ntvMSYMgEhw"
+                    "url": "ntvMSYMgEhw"
                 },
                 {
                     "type": "video",
                     "title": "Две истории о зависимости и депрессии",
-                    "url": "https://www.youtube.com/watch?v=YjJ7PAHj_XA"
+                    "url": "YjJ7PAHj_XA"
                 },
                 {
                     "type": "video",
                     "title": "Что нас ждет после карантина? Последствия самоизоляции",
-                    "url": "https://www.youtube.com/watch?v=1CMfCdbFmFU"
+                    "url": "1CMfCdbFmFU"
                 },
                 {
                     "type": "video",
                     "title": "СЕРОТОНИН | Сезонная депрессия",
-                    "url": "https://www.youtube.com/watch?v=PCDyMAgdV0o"
+                    "url": "PCDyMAgdV0o"
                 },
-                { "type": "video", "title": "Дофамин | ДОФА", "url": "https://www.youtube.com/watch?v=NeIDury1MTs" }
+                {
+                    "type": "video",
+                    "title": "Дофамин | ДОФА",
+                    "url": "NeIDury1MTs"
+                }
             ]
         }
-    ]
+    ],
+    "skills": ["Самоогранизация", "Самолечение", "Много алкогля", "Куча денег", "Контроль"],
+    "isFree": true
 }

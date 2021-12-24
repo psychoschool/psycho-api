@@ -39,9 +39,14 @@ export const fetchCourseByUrl = (url: string): Promise<CourseResponse | null> =>
         })
 }
 
-export const createCourse = (courseParams: CourseRequest, authorId: string) => {
+export const createCourse = (courseParams: CourseRequest, authorId: string): Promise<{ id: string }> => {
     const course = new CourseModel(courseParams)
     course.author = new Types.ObjectId(authorId)
 
-    return course.save()
+    return course
+        .save()
+        .then(course => ({ id: course.id }))
+        .catch(error => {
+            throw new RequestError(error.message)
+        })
 }

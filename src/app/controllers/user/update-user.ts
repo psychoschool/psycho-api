@@ -7,6 +7,6 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
 
     userResource
         .updateUserById(id, payload)
-        .then(user => res.json({ data: user }))
+        .then(user => res.json({ result: user }))
         .catch(next)
 }

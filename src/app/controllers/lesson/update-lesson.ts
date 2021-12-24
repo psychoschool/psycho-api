@@ -7,6 +7,6 @@ export const updateLesson = (req: Request, res: Response, next: NextFunction) =>
     // todo: add validation
     lessonResource
         .updateLesson(id, payload)
-        .then(lesson => res.json({ data: lesson }))
+        .then(lesson => res.json({ result: lesson }))
         .catch(next)
 }

@@ -69,9 +69,9 @@ export const addLesson = (
     course: string,
     user: string,
     url: string,
-    paidPlan: string
+    purchasedPrice: string
 ): Promise<LessonResponse | null> => {
-    return new LessonsModel({ course, user, completedLectures: [], url, paidPlan })
+    return new LessonsModel({ course, user, completedLectures: [], url, purchasedPrice })
         .save()
         .then(() => fetchUserLessonByUrl(user, url))
         .catch(error => {
