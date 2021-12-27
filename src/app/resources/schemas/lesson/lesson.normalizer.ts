@@ -1,4 +1,4 @@
-import { Lesson, LessonResponse } from 'app/resources/types'
+import { LessonResponse, Lesson } from 'app/resources/types'
 import { normalizeCourse, normalizeUser } from 'app/resources/schemas'
 
 export const normalizeLesson = (lesson: Lesson): LessonResponse => ({

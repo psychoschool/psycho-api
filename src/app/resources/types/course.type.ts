@@ -1,14 +1,17 @@
+import { Document, Types } from 'mongoose'
+import { User } from 'app/resources/types/user.type'
+
 export type CourseResponse = Course
 export type CourseRequest = Omit<Course, 'id' | 'author'>
 
-export interface Course {
+export interface CourseDoc extends Partial<Document> {
     id: string
     title: string
     image: string
     url: string
     isFree: boolean
     description: string
-    author: any
+    author: Types.ObjectId
     sections: Array<{
         id: string
         title: string
@@ -16,6 +19,10 @@ export interface Course {
     }>
     price: { cost: number; promoCost?: number }
     skills: Array<string>
+}
+
+export type Course = Omit<CourseDoc, 'author'> & {
+    author: User
 }
 
 export interface Lecture {

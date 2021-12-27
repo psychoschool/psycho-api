@@ -1,13 +1,13 @@
 import { Types } from 'mongoose'
 import { LessonsModel, normalizeLesson } from 'app/resources/schemas'
-import { Lesson, LessonResponse } from 'app/resources/types'
+import { Lesson, LessonDoc, LessonResponse } from 'app/resources/types'
 import { RequestError } from 'app/errors'
 
 export const fetchUserLessons = (userId: string): Promise<Array<LessonResponse>> => {
     const user = new Types.ObjectId(userId)
     return LessonsModel.find({ user })
         .populate({ path: 'user', model: 'users' })
-        .populate({
+        .populate<Array<Lesson>>({
             path: 'course',
             model: 'courses',
             populate: {
@@ -26,7 +26,7 @@ export const fetchUserLessonByUrl = (userId: string, url: string): Promise<Lesso
     const user = new Types.ObjectId(userId)
     return LessonsModel.findOne({ user, url })
         .populate({ path: 'user', model: 'users' })
-        .populate({
+        .populate<Lesson>({
             path: 'course',
             model: 'courses',
             populate: {
@@ -34,6 +34,7 @@ export const fetchUserLessonByUrl = (userId: string, url: string): Promise<Lesso
                 model: 'users'
             }
         })
+        .orFail()
         .exec()
         .then(lesson => {
             if (lesson) return normalizeLesson(lesson)
@@ -47,7 +48,7 @@ export const fetchUserLessonByUrl = (userId: string, url: string): Promise<Lesso
 export const fetchUserLessonById = (id: string): Promise<LessonResponse | null> => {
     return LessonsModel.findById(id)
         .populate({ path: 'user', model: 'users' })
-        .populate({
+        .populate<Lesson>({
             path: 'course',
             model: 'courses',
             populate: {
@@ -79,7 +80,7 @@ export const addLesson = (
         })
 }
 
-export const updateLesson = (id: string, payload: Partial<Lesson>): Promise<LessonResponse | null> => {
+export const updateLesson = (id: string, payload: Partial<LessonDoc>): Promise<LessonResponse | null> => {
     return LessonsModel.findByIdAndUpdate(id, payload)
         .exec()
         .then(() => fetchUserLessonById(id))

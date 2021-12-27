@@ -1,11 +1,11 @@
 import { Types } from 'mongoose'
-import type { CourseRequest, CourseResponse } from 'app/resources/types'
+import type { Course, CourseRequest, CourseResponse } from 'app/resources/types'
 import { CourseModel, normalizeCourse } from 'app/resources/schemas'
 import { RequestError } from 'app/errors'
 
 export const fetchCourses = (): Promise<Array<CourseResponse>> => {
     return CourseModel.find()
-        .populate({ path: 'author', model: 'users' })
+        .populate<Array<Course>>({ path: 'author', model: 'users' })
         .exec()
         .then(courses => courses.map(normalizeCourse))
         .catch(error => {
@@ -15,7 +15,7 @@ export const fetchCourses = (): Promise<Array<CourseResponse>> => {
 
 export const fetchCourseById = (id: string): Promise<CourseResponse | null> => {
     return CourseModel.findById(id)
-        .populate({ path: 'author', model: 'users' })
+        .populate<Course>({ path: 'author', model: 'users' })
         .exec()
         .then(course => {
             if (course) return normalizeCourse(course)
@@ -28,7 +28,7 @@ export const fetchCourseById = (id: string): Promise<CourseResponse | null> => {
 
 export const fetchCourseByUrl = (url: string): Promise<CourseResponse | null> => {
     return CourseModel.findOne({ url })
-        .populate({ path: 'author', model: 'users' })
+        .populate<Course>({ path: 'author', model: 'users' })
         .exec()
         .then(course => {
             if (course) return normalizeCourse(course)

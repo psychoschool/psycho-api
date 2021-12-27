@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose'
-import type { Course, Lecture } from 'app/resources/types'
+import type { CourseDoc, Lecture } from 'app/resources/types'
 
 const LectureSchema = new Schema<Lecture>({
     type: String,
@@ -7,12 +7,12 @@ const LectureSchema = new Schema<Lecture>({
     title: String
 })
 
-const CourseSchema = new Schema<Course>({
+const CourseSchema = new Schema<CourseDoc>({
     title: String,
     description: String,
     url: { type: String, unique: true },
     image: String,
-    author: { type: Schema.Types.ObjectId, ref: 'users' },
+    author: { type: 'ObjectId', ref: 'users' },
     sections: [{ title: String, lectures: [LectureSchema] }],
     skills: [String],
     price: { cost: Number, promoCost: Number },

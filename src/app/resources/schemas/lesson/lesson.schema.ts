@@ -1,10 +1,10 @@
 import { model, Schema } from 'mongoose'
-import { Lesson } from 'app/resources/types'
+import { LessonDoc } from 'app/resources/types'
 
-const LessonSchema = new Schema<Lesson>({
+const LessonSchema = new Schema<LessonDoc>({
     url: String,
-    course: { type: Schema.Types.ObjectId, ref: 'courses' },
-    user: { type: Schema.Types.ObjectId, ref: 'users' },
+    course: { type: 'ObjectId', ref: 'courses' },
+    user: { type: 'ObjectId', ref: 'users' },
     completedLectures: [String],
     purchasedPrice: Number
 })

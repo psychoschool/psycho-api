@@ -1,4 +1,5 @@
-import { CourseResponse, UserResponse } from 'app/resources/types'
+import { Document, Types } from 'mongoose'
+import { Course, CourseResponse, User, UserResponse } from 'app/resources/types'
 
 export type LessonResponse = {
     id: string
@@ -10,11 +11,16 @@ export type LessonResponse = {
     url: string
 }
 
-export interface Lesson {
+export interface LessonDoc extends Partial<Document> {
     id: string
-    course: any
-    user: any
     url: string
+    user: Types.ObjectId
+    course: Types.ObjectId
     completedLectures: Array<string>
     purchasedPrice?: number
+}
+
+export type Lesson = Omit<LessonDoc, 'course' | 'user'> & {
+    course: Course
+    user: User
 }
