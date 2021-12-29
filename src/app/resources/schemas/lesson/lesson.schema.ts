@@ -1,5 +1,5 @@
 import { model, Schema } from 'mongoose'
-import { LessonDoc } from 'app/resources/types'
+import { Lesson, LessonDoc } from 'app/resources/types'
 
 const LessonSchema = new Schema<LessonDoc>({
     url: String,
@@ -7,6 +7,13 @@ const LessonSchema = new Schema<LessonDoc>({
     user: { type: 'ObjectId', ref: 'users' },
     completedLectures: [String],
     purchasedPrice: Number
+})
+
+LessonSchema.virtual('progress').get(function (this: Lesson) {
+    const completed = this.completedLectures.length
+    const total = this.course.lecCount
+
+    return completed / total
 })
 
 export const LessonsModel = model('lessons', LessonSchema)

@@ -3,12 +3,13 @@ import { Course, CourseResponse, User, UserResponse } from 'app/resources/types'
 
 export type LessonResponse = {
     id: string
-    course: CourseResponse
-    user: UserResponse
-    completedLectures: Array<string>
-    purchasedPrice?: number
-    isFree: boolean
     url: string
+    user: UserResponse
+    isFree: boolean
+    course: CourseResponse
+    progress: number
+    purchasedPrice?: number
+    completedLectures: Array<string>
 }
 
 export interface LessonDoc extends Partial<Document> {
@@ -16,8 +17,9 @@ export interface LessonDoc extends Partial<Document> {
     url: string
     user: Types.ObjectId
     course: Types.ObjectId
-    completedLectures: Array<string>
+    progress: number
     purchasedPrice?: number
+    completedLectures: Array<string>
 }
 
 export type Lesson = Omit<LessonDoc, 'course' | 'user'> & {

@@ -19,4 +19,8 @@ const CourseSchema = new Schema<CourseDoc>({
     isFree: { type: Boolean, required: [true, 'isFree is required field'] }
 })
 
+CourseSchema.virtual('lecCount').get(function (this: CourseDoc) {
+    return this.sections.reduce((res, sec) => res + sec.lectures.length, 0)
+})
+
 export const CourseModel = model('courses', CourseSchema)

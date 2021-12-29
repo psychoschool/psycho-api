@@ -18,6 +18,7 @@ export const normalizeCourse = (course: Course): CourseResponse => ({
             url: lecture.url
         }))
     })),
+    lecCount: course.lecCount,
     skills: course.skills,
     isFree: course.isFree,
     price: {
