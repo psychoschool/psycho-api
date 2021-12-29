@@ -10,52 +10,92 @@
                 {
                     "type": "video",
                     "title": "Теория депресси. Симптомы и лечение",
-                    "url": "Plaq3HOl7uU"
+                    "video": {
+                        "provider": "youtube",
+                        "videoId": "Plaq3HOl7uU",
+                        "videoUrl": "https://www.youtube.com/watch?v=Plaq3HOl7uU"
+                    }
                 },
                 {
                     "type": "video",
                     "title": "Причины",
-                    "url": "9EsyhT4Ljxw"
+                    "video": {
+                        "provider": "youtube",
+                        "videoId": "9EsyhT4Ljxw",
+                        "videoUrl": "https://www.youtube.com/watch?v=9EsyhT4Ljxw"
+                    }
                 },
                 {
                     "type": "video",
                     "title": "Симптомы и лечение. ч.1",
-                    "url": "9RrOC9F9Tc0"
+                    "video": {
+                        "provider": "youtube",
+                        "videoId": "9RrOC9F9Tc0",
+                        "videoUrl": "https://www.youtube.com/watch?v=9RrOC9F9Tc0"
+                    }
                 },
                 {
                     "type": "video",
                     "title": "Что она делает? Инструкция самопомощи",
-                    "url": "tSqilg_NTXU"
+                    "video": {
+                        "provider": "youtube",
+                        "videoId": "tSqilg_NTXU",
+                        "videoUrl": "https://www.youtube.com/watch?v=tSqilg_NTXU"
+                    }
                 },
                 {
                     "type": "video",
                     "title": "Как я заработал себе на депрессию",
-                    "url": "DOfB12h_9yE"
+                    "video": {
+                        "provider": "youtube",
+                        "videoId": "DOfB12h_9yE",
+                        "videoUrl": "https://www.youtube.com/watch?v=DOfB12h_9yE"
+                    }
                 },
                 {
                     "type": "video",
                     "title": "Антидепрессанты, возвращение к наркотикам.",
-                    "url": "ntvMSYMgEhw"
+                    "video": {
+                        "provider": "youtube",
+                        "videoId": "ntvMSYMgEhw",
+                        "videoUrl": "https://www.youtube.com/watch?v=ntvMSYMgEhw"
+                    }
                 },
                 {
                     "type": "video",
                     "title": "Две истории о зависимости и депрессии",
-                    "url": "YjJ7PAHj_XA"
+                    "video": {
+                        "provider": "youtube",
+                        "videoId": "YjJ7PAHj_XA",
+                        "videoUrl": "https://www.youtube.com/watch?v=YjJ7PAHj_XA"
+                    }
                 },
                 {
                     "type": "video",
                     "title": "Что нас ждет после карантина? Последствия самоизоляции",
-                    "url": "1CMfCdbFmFU"
+                    "video": {
+                        "provider": "youtube",
+                        "videoId": "1CMfCdbFmFU",
+                        "videoUrl": "https://www.youtube.com/watch?v=1CMfCdbFmFU"
+                    }
                 },
                 {
                     "type": "video",
                     "title": "СЕРОТОНИН | Сезонная депрессия",
-                    "url": "PCDyMAgdV0o"
+                    "video": {
+                        "provider": "youtube",
+                        "videoId": "PCDyMAgdV0o",
+                        "videoUrl": "https://www.youtube.com/watch?v=PCDyMAgdV0o"
+                    }
                 },
                 {
                     "type": "video",
                     "title": "Дофамин | ДОФА",
-                    "url": "NeIDury1MTs"
+                    "video": {
+                        "provider": "youtube",
+                        "videoId": "NeIDury1MTs",
+                        "videoUrl": "https://www.youtube.com/watch?v=NeIDury1MTs"
+                    }
                 }
             ]
         }

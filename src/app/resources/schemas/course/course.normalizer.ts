@@ -15,7 +15,13 @@ export const normalizeCourse = (course: Course): CourseResponse => ({
             id: lecture.id,
             title: lecture.title,
             type: lecture.type,
-            url: lecture.url
+            video: lecture.video
+                ? {
+                      provider: lecture.video.provider,
+                      videoId: lecture.video.videoId,
+                      videoUrl: lecture.video.videoUrl
+                  }
+                : undefined
         }))
     })),
     lecCount: course.lecCount,

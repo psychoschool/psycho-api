@@ -3,8 +3,12 @@ import type { CourseDoc, Lecture } from 'app/resources/types'
 
 const LectureSchema = new Schema<Lecture>({
     type: String,
-    url: String,
-    title: String
+    title: String,
+    video: {
+        provider: String,
+        videoId: String,
+        videoUrl: String
+    }
 })
 
 const CourseSchema = new Schema<CourseDoc>({
