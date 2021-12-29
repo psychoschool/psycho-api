@@ -8,15 +8,15 @@ const LectureSchema = new Schema<Lecture>({
 })
 
 const CourseSchema = new Schema<CourseDoc>({
-    title: String,
+    title: { type: String, required: [true, 'title is required'] },
     description: String,
     url: { type: String, unique: true },
-    image: String,
-    author: { type: 'ObjectId', ref: 'users' },
+    image: { type: String, required: [true, 'image is required'] },
+    author: { type: 'ObjectId', ref: 'users', required: [true, 'author is required'] },
     sections: [{ title: String, lectures: [LectureSchema] }],
     skills: [String],
     price: { cost: Number, promoCost: Number },
-    isFree: Boolean
+    isFree: { type: Boolean, required: [true, 'isFree is required field'] }
 })
 
 export const CourseModel = model('courses', CourseSchema)
