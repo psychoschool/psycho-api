@@ -5,7 +5,7 @@ import { RequestError } from 'app/errors'
 
 export const fetchCourses = (): Promise<Array<CourseResponse>> => {
     return CourseModel.find()
-        .populate<Array<Course>>({ path: 'author', model: 'users' })
+        .populate<Course>({ path: 'author', model: 'users' })
         .exec()
         .then(courses => courses.map(normalizeCourse))
         .catch(error => {

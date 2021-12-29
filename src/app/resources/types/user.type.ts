@@ -4,7 +4,7 @@ export type UserRequest = Omit<User, 'id'>
 export type UserResponse = Pick<User, 'id' | 'firstName' | 'email' | 'phone' | 'role'>
 export type UserRole = 'admin' | 'tutor' | 'student'
 
-export interface User extends Document {
+export interface User extends Partial<Document> {
     id: string
     firstName: string
     email: string

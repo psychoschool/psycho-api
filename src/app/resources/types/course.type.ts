@@ -1,7 +1,9 @@
 import { Document, Types } from 'mongoose'
-import { User } from 'app/resources/types/user.type'
+import { User, UserResponse } from 'app/resources/types/user.type'
 
-export type CourseResponse = Course
+export type CourseResponse = Omit<Course, 'author'> & {
+    author: UserResponse
+}
 export type CourseRequest = Omit<Course, 'id' | 'author'>
 
 export interface CourseDoc extends Partial<Document> {
