@@ -24,7 +24,10 @@ spec:
                   name: secret-token
                   key: SECRET_TOKEN_STAGE
             - name: DB_HOST
-              value: 'mongodb://mongo-srv:27017/psycho-stage'
+              valueFrom:
+                secretKeyRef:
+                  name: db-access
+                  key: DB_HOST_STAGE
           resources:
             limits:
               cpu: 200m

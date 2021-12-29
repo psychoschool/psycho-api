@@ -31,7 +31,7 @@ spec:
             - name: MONGO_INITDB_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: access
+                  name: db-access
                   key: DB_PASSWORD
 ---
 apiVersion: v1
