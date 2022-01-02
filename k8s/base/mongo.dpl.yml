@@ -22,6 +22,17 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/mongo/db
               name: mongo-storage
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-access
+                  key: DB_USERNAME
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-access
+                  key: DB_PASSWORD
 ---
 apiVersion: v1
 kind: Service
