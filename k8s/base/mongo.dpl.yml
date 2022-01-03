@@ -19,8 +19,9 @@ spec:
       containers:
         - name: mongo
           image: mongo
+          args: ['--dbpath', '/data/db']
           volumeMounts:
-            - mountPath: /var/lib/mongo/db
+            - mountPath: /data/db
               name: mongo-storage
           env:
             - name: MONGO_INITDB_ROOT_USERNAME
