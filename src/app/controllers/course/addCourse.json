@@ -1,105 +1,114 @@
 {
-    "title": "Депрессия ",
+    "title": "Шаг вперед ",
     "description": "Индивидуальная программа формирования свободной личности. Курс направлен на внутреннюю работу с установками, зависимостями, которые мешают быть счастливым и получать удовольствие от жизни.",
-    "image": "https://cdn.lifehacker.ru/wp-content/uploads/2018/02/Depra_1518533823-1280x640.jpg",
-    "url": "depression",
+    "image": "https://miroznai.ru/sites/default/files/2021-01/1psihochel.jpg",
+    "url": "shag",
     "sections": [
         {
-            "title": "Базовый курс",
+            "title": "Основные понятия",
             "lectures": [
                 {
                     "type": "video",
-                    "title": "Теория депресси. Симптомы и лечение",
+                    "title": "1. У кого такие границы",
                     "video": {
-                        "provider": "youtube",
-                        "videoId": "Plaq3HOl7uU",
-                        "videoUrl": "https://www.youtube.com/watch?v=Plaq3HOl7uU"
+                        "provider": "wistia",
+                        "videoId": "kp7cnn109t",
+                        "duration": 685.2,
+                        "videoUrl": "https://doctorlisenkov.wistia.com/medias/kp7cnn109t"
                     }
                 },
                 {
                     "type": "video",
-                    "title": "Причины",
+                    "title": "2 Установки формирующие границы",
                     "video": {
-                        "provider": "youtube",
-                        "videoId": "9EsyhT4Ljxw",
-                        "videoUrl": "https://www.youtube.com/watch?v=9EsyhT4Ljxw"
+                        "provider": "wistia",
+                        "videoId": "jdjy8c17ab",
+                        "duration": 441,
+                        "videoUrl": "https://doctorlisenkov.wistia.com/medias/jdjy8c17ab"
                     }
                 },
                 {
                     "type": "video",
-                    "title": "Симптомы и лечение. ч.1",
+                    "title": "Границы и как они сформировались",
                     "video": {
-                        "provider": "youtube",
-                        "videoId": "9RrOC9F9Tc0",
-                        "videoUrl": "https://www.youtube.com/watch?v=9RrOC9F9Tc0"
+                        "provider": "wistia",
+                        "videoId": "n1gbnqvn0v",
+                        "duration": 732,
+                        "videoUrl": "https://doctorlisenkov.wistia.com/medias/n1gbnqvn0v"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Практики",
+            "lectures": [
+                {
+                    "type": "video",
+                    "title": "8 принятие себя",
+                    "video": {
+                        "provider": "wistia",
+                        "videoId": "534cok6as9",
+                        "duration": 1281,
+                        "videoUrl": "https://doctorlisenkov.wistia.com/medias/534cok6as9"
                     }
                 },
                 {
                     "type": "video",
-                    "title": "Что она делает? Инструкция самопомощи",
+                    "title": "10 Эмоции",
                     "video": {
-                        "provider": "youtube",
-                        "videoId": "tSqilg_NTXU",
-                        "videoUrl": "https://www.youtube.com/watch?v=tSqilg_NTXU"
+                        "provider": "wistia",
+                        "videoId": "ghmjftvuy8",
+                        "duration": 1169.4,
+                        "videoUrl": "https://doctorlisenkov.wistia.com/medias/ghmjftvuy8"
                     }
                 },
                 {
                     "type": "video",
-                    "title": "Как я заработал себе на депрессию",
+                    "title": "11 Обида и стыд",
                     "video": {
-                        "provider": "youtube",
-                        "videoId": "DOfB12h_9yE",
-                        "videoUrl": "https://www.youtube.com/watch?v=DOfB12h_9yE"
+                        "provider": "wistia",
+                        "videoId": "fjnbxme0zl",
+                        "duration": 622.8,
+                        "videoUrl": "https://doctorlisenkov.wistia.com/medias/fjnbxme0zl"
                     }
                 },
                 {
                     "type": "video",
-                    "title": "Антидепрессанты, возвращение к наркотикам.",
+                    "title": "14 Осознание",
                     "video": {
-                        "provider": "youtube",
-                        "videoId": "ntvMSYMgEhw",
-                        "videoUrl": "https://www.youtube.com/watch?v=ntvMSYMgEhw"
+                        "provider": "wistia",
+                        "videoId": "r58ybky1t4",
+                        "duration": 687,
+                        "videoUrl": "https://doctorlisenkov.wistia.com/medias/r58ybky1t4"
                     }
                 },
                 {
                     "type": "video",
-                    "title": "Две истории о зависимости и депрессии",
+                    "title": "15 Страхи",
                     "video": {
-                        "provider": "youtube",
-                        "videoId": "YjJ7PAHj_XA",
-                        "videoUrl": "https://www.youtube.com/watch?v=YjJ7PAHj_XA"
+                        "provider": "wistia",
+                        "videoId": "klsnbnl5ik",
+                        "duration": 687,
+                        "videoUrl": "https://doctorlisenkov.wistia.com/medias/klsnbnl5ik"
                     }
                 },
                 {
                     "type": "video",
-                    "title": "Что нас ждет после карантина? Последствия самоизоляции",
+                    "title": "16 Матрешка",
                     "video": {
-                        "provider": "youtube",
-                        "videoId": "1CMfCdbFmFU",
-                        "videoUrl": "https://www.youtube.com/watch?v=1CMfCdbFmFU"
-                    }
-                },
-                {
-                    "type": "video",
-                    "title": "СЕРОТОНИН | Сезонная депрессия",
-                    "video": {
-                        "provider": "youtube",
-                        "videoId": "PCDyMAgdV0o",
-                        "videoUrl": "https://www.youtube.com/watch?v=PCDyMAgdV0o"
-                    }
-                },
-                {
-                    "type": "video",
-                    "title": "Дофамин | ДОФА",
-                    "video": {
-                        "provider": "youtube",
-                        "videoId": "NeIDury1MTs",
-                        "videoUrl": "https://www.youtube.com/watch?v=NeIDury1MTs"
+                        "provider": "wistia",
+                        "videoId": "fbzqxl5f2c",
+                        "duration": 813,
+                        "videoUrl": "https://doctorlisenkov.wistia.com/medias/fbzqxl5f2c"
                     }
                 }
             ]
         }
     ],
     "skills": ["Самоогранизация", "Самолечение", "Много алкогля", "Куча денег", "Контроль"],
-    "isFree": true
+    "price": {
+        "cost": 20000,
+        "promoCost": 15000
+    },
+    "isFree": false
 }
