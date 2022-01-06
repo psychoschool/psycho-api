@@ -15,10 +15,12 @@ export interface CourseDoc extends Partial<Document> {
     isFree: boolean
     description: string
     lecCount: number
+    duration: number
     author: Types.ObjectId
     sections: Array<{
         id: string
         title: string
+        duration: number
         lectures: Array<Lecture>
     }>
     price: { cost: number; promoCost?: number }
@@ -37,5 +39,6 @@ export interface Lecture {
         provider: 'youtube' | 'wistia'
         videoId: string
         videoUrl: string
+        duration: number
     }
 }

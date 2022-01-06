@@ -8,9 +8,11 @@ export const normalizeCourse = (course: Course): CourseResponse => ({
     description: course.description,
     author: normalizeUser(course.author),
     url: course.url,
+    duration: course.duration,
     sections: course.sections.map(section => ({
         id: section.id,
         title: section.title,
+        duration: section.duration,
         lectures: section.lectures.map(lecture => ({
             id: lecture.id,
             title: lecture.title,
@@ -19,6 +21,7 @@ export const normalizeCourse = (course: Course): CourseResponse => ({
                 ? {
                       provider: lecture.video.provider,
                       videoId: lecture.video.videoId,
+                      duration: lecture.video.duration,
                       videoUrl: lecture.video.videoUrl
                   }
                 : undefined
