@@ -28,6 +28,16 @@ spec:
                 secretKeyRef:
                   name: db-access
                   key: DB_HOST_STAGE
+            - name: EMAIL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: email-secret
+                  key: EMAIL_USER
+            - name: EMAIL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: email-secret
+                  key: EMAIL_PASSWORD
           resources:
             limits:
               cpu: 200m
