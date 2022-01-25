@@ -28,6 +28,8 @@ spec:
                 secretKeyRef:
                   name: db-access
                   key: DB_HOST_STAGE
+            - name: HOST
+              value: 'https://api-stage.psychoschool.ru'
             - name: EMAIL_USER
               valueFrom:
                 secretKeyRef:
