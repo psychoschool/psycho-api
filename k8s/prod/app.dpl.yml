@@ -30,6 +30,8 @@ spec:
                   key: DB_HOST_PROD
             - name: HOST
               value: 'https://stage.psychoschool.ru'
+            - name: API_MODE
+              value: production
             - name: EMAIL_USER
               valueFrom:
                 secretKeyRef:

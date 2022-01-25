@@ -20,10 +20,11 @@ export const fetchUserByEmail = (email: string): Promise<User | null> => {
         })
 }
 
-export const fetchUserById = (id: string): Promise<UserResponse | null> => {
+export const fetchUserById = (id: string, isFull = false): Promise<UserResponse | null> => {
     return UserModel.findById(id)
         .exec()
         .then(user => {
+            if (isFull && user) return user
             if (user) return normalizeUser(user)
             return null
         })
