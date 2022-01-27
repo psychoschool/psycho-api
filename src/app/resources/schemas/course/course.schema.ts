@@ -28,7 +28,7 @@ SectionSchema.virtual('duration').get(function (this: CourseDoc['sections'][numb
 const CourseSchema = new Schema<CourseDoc>({
     title: { type: String, required: [true, 'title is required'] },
     description: String,
-    url: { type: String, unique: true },
+    slug: { type: String, unique: true },
     image: { type: String, required: [true, 'image is required'] },
     author: { type: 'ObjectId', ref: 'users', required: [true, 'author is required'] },
     sections: [SectionSchema],

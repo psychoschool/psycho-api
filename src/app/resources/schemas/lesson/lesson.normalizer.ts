@@ -9,5 +9,5 @@ export const normalizeLesson = (lesson: Lesson): LessonResponse => ({
     purchasedPrice: lesson.purchasedPrice,
     isFree: lesson.course.isFree,
     progress: lesson.progress,
-    url: lesson.url
+    slug: lesson.slug
 })

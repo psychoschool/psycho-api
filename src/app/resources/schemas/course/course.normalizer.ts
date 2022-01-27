@@ -7,7 +7,7 @@ export const normalizeCourse = (course: Course): CourseResponse => ({
     image: course.image,
     description: course.description,
     author: normalizeUser(course.author),
-    url: course.url,
+    slug: course.slug,
     duration: course.duration,
     sections: course.sections.map(section => ({
         id: section.id,

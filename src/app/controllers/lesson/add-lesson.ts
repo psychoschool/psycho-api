@@ -3,10 +3,10 @@ import * as lessonResource from 'app/resources/api/lesson.resource'
 import { sendEmail } from 'src/utils/mail'
 
 export const addLesson = (req: Request, res: Response, next: NextFunction) => {
-    const { course, user, url, price } = req.body
+    const { course, user, slug, price } = req.body
     // todo: add validation
     lessonResource
-        .addLesson(course, user, url, price)
+        .addLesson(course, user, slug, price)
         .then(lesson => {
             if (lesson) {
                 sendEmail({
