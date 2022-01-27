@@ -22,7 +22,7 @@ export const fetchUserLessons = (userId: string): Promise<Array<LessonResponse>>
         })
 }
 
-export const fetchUserLessonByUrl = (userId: string, slug: string): Promise<LessonResponse | null> => {
+export const fetchUserLessonBySlug = (userId: string, slug: string): Promise<LessonResponse | null> => {
     const user = new Types.ObjectId(userId)
     return LessonsModel.findOne({ user, slug })
         .populate({ path: 'user', model: 'users' })
@@ -69,12 +69,12 @@ export const fetchUserLessonById = (id: string): Promise<LessonResponse | null> 
 export const addLesson = (
     course: string,
     user: string,
-    url: string,
+    slug: string,
     purchasedPrice: string
 ): Promise<LessonResponse | null> => {
-    return new LessonsModel({ course, user, completedLectures: [], url, purchasedPrice })
+    return new LessonsModel({ course, user, completedLectures: [], slug, purchasedPrice })
         .save()
-        .then(() => fetchUserLessonByUrl(user, url))
+        .then(() => fetchUserLessonBySlug(user, slug))
         .catch(error => {
             throw new RequestError(error.message)
         })

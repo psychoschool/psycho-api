@@ -4,11 +4,11 @@ import * as lessonResource from 'app/resources/api/lesson.resource'
 export const getUserLessons = (req: Request, res: Response, next: NextFunction) => {
     // todo: add validation
     const { userId } = req.params
-    const { url } = req.query
+    const { slug } = req.query
 
-    if (url) {
+    if (slug) {
         lessonResource
-            .fetchUserLessonByUrl(userId, url as string)
+            .fetchUserLessonBySlug(userId, slug as string)
             .then(course => res.send({ result: course }))
             .catch(next)
     } else {
