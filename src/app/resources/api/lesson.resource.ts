@@ -7,7 +7,7 @@ export const fetchUserLessons = (userId: string): Promise<Array<LessonResponse>>
     const user = new Types.ObjectId(userId)
     return LessonsModel.find({ user })
         .populate({ path: 'user', model: 'users' })
-        .populate<Array<Lesson>>({
+        .populate<Lesson>({
             path: 'course',
             model: 'courses',
             populate: {
@@ -22,9 +22,9 @@ export const fetchUserLessons = (userId: string): Promise<Array<LessonResponse>>
         })
 }
 
-export const fetchUserLessonByUrl = (userId: string, url: string): Promise<LessonResponse | null> => {
+export const fetchUserLessonByUrl = (userId: string, slug: string): Promise<LessonResponse | null> => {
     const user = new Types.ObjectId(userId)
-    return LessonsModel.findOne({ user, url })
+    return LessonsModel.findOne({ user, slug })
         .populate({ path: 'user', model: 'users' })
         .populate<Lesson>({
             path: 'course',

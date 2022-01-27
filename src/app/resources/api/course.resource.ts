@@ -26,8 +26,8 @@ export const fetchCourseById = (id: string): Promise<CourseResponse | null> => {
         })
 }
 
-export const fetchCourseByUrl = (url: string): Promise<CourseResponse | null> => {
-    return CourseModel.findOne({ url })
+export const fetchCourseBySlug = (slug: string): Promise<CourseResponse | null> => {
+    return CourseModel.findOne({ slug })
         .populate<Course>({ path: 'author', model: 'users' })
         .exec()
         .then(course => {

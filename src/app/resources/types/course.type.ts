@@ -11,7 +11,7 @@ export interface CourseDoc extends Partial<Document> {
     id: string
     title: string
     image: string
-    url: string
+    slug: string
     isFree: boolean
     description: string
     lecCount: number

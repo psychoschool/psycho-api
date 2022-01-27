@@ -3,7 +3,7 @@ import { Course, CourseResponse, User, UserResponse } from 'app/resources/types'
 
 export type LessonResponse = {
     id: string
-    url: string
+    slug: string
     user: UserResponse
     isFree: boolean
     course: CourseResponse
@@ -14,7 +14,7 @@ export type LessonResponse = {
 
 export interface LessonDoc extends Partial<Document> {
     id: string
-    url: string
+    slug: string
     user: Types.ObjectId
     course: Types.ObjectId
     progress: number

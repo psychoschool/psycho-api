@@ -2,7 +2,7 @@ import { model, Schema } from 'mongoose'
 import { Lesson, LessonDoc } from 'app/resources/types'
 
 const LessonSchema = new Schema<LessonDoc>({
-    url: String,
+    slug: String,
     course: { type: 'ObjectId', ref: 'courses' },
     user: { type: 'ObjectId', ref: 'users' },
     completedLectures: [String],
