@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 
 import { AuthError } from 'app/errors'
 import { fetchUserById, updateUserById } from 'app/resources/api'
-import { User, UserRequest } from 'app/resources/types'
+import { JWTPayload, User, UserRequest } from 'app/resources/types'
 import { getEnvVars } from 'src/utils'
 
 export const reset = async (req: Request, res: Response) => {
@@ -15,10 +15,11 @@ export const reset = async (req: Request, res: Response) => {
 
     const secret = getEnvVars('SECRET_TOKEN') + user.password
 
-    jwt.verify(token, secret, async err => {
+    jwt.verify(token, secret, async (err, payload) => {
         if (err) return res.sendStatus(403)
-
+        const { sub } = payload as JWTPayload
         const hashedPassword = await bcrypt.hash(password, 10)
-        updateUserById(userId, { password: hashedPassword }).then(user => res.json({ user }))
+
+        updateUserById(sub, { password: hashedPassword }).then(user => res.json({ user }))
     })
 }
