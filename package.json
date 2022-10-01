@@ -27,7 +27,7 @@
         "express": "^4.17.2",
         "express-async-errors": "^3.1.1",
         "jsonwebtoken": "^8.5.1",
-        "mongoose": "^6.1.6",
+        "mongoose": "^6.6.3",
         "nodemailer": "^6.7.2",
         "nodemailer-express-handlebars": "^4.0.0",
         "qs": "^6.10.3"
